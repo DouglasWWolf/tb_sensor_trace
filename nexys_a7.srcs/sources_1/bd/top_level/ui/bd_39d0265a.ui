@@ -1,0 +1,95 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-355,-249",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port UART -pg 1 -lvl 7 -x 2300 -y 670 -defaultsOSRD
+preplace port port-id_CLK100MHZ -pg 1 -lvl 0 -x 0 -y 410 -defaultsOSRD
+preplace port port-id_CPU_RESETN -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
+preplace inst source_50mhz -pg 1 -lvl 1 -x 190 -y 410 -swap {0 4 2 1 3} -defaultsOSRD -pinDir CLK100MHZ left -pinY CLK100MHZ 0L -pinDir clk_50mhz right -pinY clk_50mhz 200R -pinDir CPU_RESETN left -pinY CPU_RESETN 20L -pinBusDir interconnect_aresetn right -pinBusY interconnect_aresetn 0R -pinBusDir peripheral_aresetn right -pinBusY peripheral_aresetn 20R
+preplace inst axi_uart_bridge -pg 1 -lvl 2 -x 460 -y 490 -defaultsOSRD -pinDir M_AXI right -pinY M_AXI 0R -pinDir UART right -pinY UART 120R -pinDir aresetn left -pinY aresetn 0L -pinDir aclk left -pinY aclk 120L
+preplace inst sensor_emulator -pg 1 -lvl 5 -x 1550 -y 60 -swap {29 28 6 7 11 8 10 9 4 3 2 5 0 13 14 15 16 17 18 19 20 21 22 23 12 1 25 26 27 24} -defaultsOSRD -pinDir resetn left -pinY resetn 380L -pinDir clk left -pinY clk 360L -pinDir rs256 right -pinY rs256 280R -pinDir pa_sync right -pinY pa_sync 300R -pinBusDir lvds right -pinBusY lvds 380R -pinDir rs0 right -pinY rs0 320R -pinDir sof right -pinY sof 360R -pinDir eof right -pinY eof 340R -pinBusDir cycles_per_frame right -pinBusY cycles_per_frame 240R -pinBusDir idle_0 right -pinBusY idle_0 220R -pinBusDir idle_1 right -pinBusY idle_1 200R -pinBusDir frame_header right -pinBusY frame_header 260R -pinDir i_FIFO_CTL_f0_reset left -pinY i_FIFO_CTL_f0_reset 0L -pinDir i_FIFO_CTL_f1_reset left -pinY i_FIFO_CTL_f1_reset 60L -pinDir i_FIFO_CTL_wstrobe left -pinY i_FIFO_CTL_wstrobe 80L -pinBusDir i_UPPER32 left -pinBusY i_UPPER32 100L -pinBusDir i_LOAD_F0 left -pinBusY i_LOAD_F0 120L -pinDir i_LOAD_F0_wstrobe left -pinY i_LOAD_F0_wstrobe 140L -pinBusDir i_LOAD_F1 left -pinBusY i_LOAD_F1 160L -pinDir i_LOAD_F1_wstrobe left -pinY i_LOAD_F1_wstrobe 180L -pinBusDir i_START left -pinBusY i_START 200L -pinDir i_START_wstrobe left -pinY i_START_wstrobe 220L -pinDir i_HARD_STOP_wstrobe left -pinY i_HARD_STOP_wstrobe 240L -pinBusDir o_MODULE_REV left -pinBusY o_MODULE_REV 260L -pinDir o_FIFO_STAT_f0_ready left -pinY o_FIFO_STAT_f0_ready 40L -pinDir o_FIFO_STAT_f1_ready left -pinY o_FIFO_STAT_f1_ready 20L -pinBusDir o_F0_COUNT left -pinBusY o_F0_COUNT 300L -pinBusDir o_F1_COUNT left -pinBusY o_F1_COUNT 320L -pinBusDir o_ACTIVE_FIFO left -pinBusY o_ACTIVE_FIFO 340L -pinBusDir o_PATTERN_WIDTH left -pinBusY o_PATTERN_WIDTH 280L
+preplace inst fpga -pg 1 -lvl 6 -x 2140 -y 490 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 23 24 21 25 22 20} -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 80L -pinDir resetn left -pinY resetn 100L -pinDir PA_SYNC left -pinY PA_SYNC 40L -pinBusDir LVDS left -pinBusY LVDS 120L -pinDir RS0 left -pinY RS0 60L -pinDir RS256 left -pinY RS256 20L
+preplace inst system_ila -pg 1 -lvl 6 -x 2140 -y 730 -swap {5 2 0 1 6 4 3 7} -defaultsOSRD -pinDir clk left -pinY clk 100L -pinBusDir probe0 left -pinBusY probe0 40L -pinBusDir probe1 left -pinBusY probe1 0L -pinBusDir probe2 left -pinBusY probe2 20L -pinBusDir probe3 left -pinBusY probe3 120L -pinBusDir probe4 left -pinBusY probe4 80L -pinBusDir probe5 left -pinBusY probe5 60L -pinBusDir probe6 left -pinBusY probe6 140L
+preplace inst configure -pg 1 -lvl 6 -x 2140 -y 270 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 24 25 22 21 20 23} -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 100L -pinDir resetn left -pinY resetn 120L -pinBusDir cycles_per_frame left -pinBusY cycles_per_frame 60L -pinBusDir idle_0 left -pinBusY idle_0 40L -pinBusDir idle_1 left -pinBusY idle_1 20L -pinBusDir frame_header left -pinBusY frame_header 80L
+preplace inst sensor_emu_ctl_axi -pg 1 -lvl 4 -x 1140 -y 60 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 25 26 27 28 29 30 31 32 33 34 35 36 24 23 37 38 39} -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 310L -pinDir clk left -pinY clk 330L -pinDir resetn left -pinY resetn 350L -pinDir o_FIFO_CTL_f0_reset right -pinY o_FIFO_CTL_f0_reset 0R -pinDir o_FIFO_CTL_f1_reset right -pinY o_FIFO_CTL_f1_reset 60R -pinDir o_FIFO_CTL_wstrobe right -pinY o_FIFO_CTL_wstrobe 80R -pinBusDir o_UPPER32 right -pinBusY o_UPPER32 100R -pinBusDir o_LOAD_F0 right -pinBusY o_LOAD_F0 120R -pinDir o_LOAD_F0_wstrobe right -pinY o_LOAD_F0_wstrobe 140R -pinBusDir o_LOAD_F1 right -pinBusY o_LOAD_F1 160R -pinDir o_LOAD_F1_wstrobe right -pinY o_LOAD_F1_wstrobe 180R -pinBusDir o_START right -pinBusY o_START 200R -pinDir o_START_wstrobe right -pinY o_START_wstrobe 220R -pinDir o_HARD_STOP_wstrobe right -pinY o_HARD_STOP_wstrobe 240R -pinBusDir i_MODULE_REV right -pinBusY i_MODULE_REV 260R -pinBusDir i_PATTERN_WIDTH right -pinBusY i_PATTERN_WIDTH 280R -pinDir i_FIFO_STAT_f0_ready right -pinY i_FIFO_STAT_f0_ready 40R -pinDir i_FIFO_STAT_f1_ready right -pinY i_FIFO_STAT_f1_ready 20R -pinBusDir i_F0_COUNT right -pinBusY i_F0_COUNT 300R -pinBusDir i_F1_COUNT right -pinBusY i_F1_COUNT 320R -pinBusDir i_ACTIVE_FIFO right -pinBusY i_ACTIVE_FIFO 340R
+preplace inst system_interconnect -pg 1 -lvl 3 -x 740 -y 370 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 101 100} -defaultsOSRD -pinDir S00_AXI left -pinY S00_AXI 120L -pinDir M00_AXI right -pinY M00_AXI 0R -pinDir M01_AXI right -pinY M01_AXI 120R -pinDir M02_AXI right -pinY M02_AXI 140R -pinDir M03_AXI right -pinY M03_AXI 160R -pinDir aclk left -pinY aclk 160L -pinDir aresetn left -pinY aresetn 140L
+preplace inst sensor_trace -pg 1 -lvl 5 -x 1550 -y 630 -swap {1 0 3 10 7 8 6 9 4 5 2 11 12} -defaultsOSRD -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 0L -pinBusDir cycles_per_frame right -pinBusY cycles_per_frame 20R -pinBusDir frame_header right -pinBusY frame_header 40R -pinBusDir tracer_value left -pinBusY tracer_value 100L -pinBusDir tracer_enable left -pinBusY tracer_enable 120L -pinBusDir tracer_index left -pinBusY tracer_index 80L -pinBusDir rd_tracer_cell left -pinBusY rd_tracer_cell 140L -pinBusDir wr_tracer_cell left -pinBusY wr_tracer_cell 40L -pinDir wr_tracer_cell_wstrobe left -pinY wr_tracer_cell_wstrobe 60L -pinBusDir lvds_in right -pinBusY lvds_in 0R -pinBusDir lvds_out right -pinBusY lvds_out 60R -pinDir sof right -pinY sof 240R
+preplace inst sensor_trace_ctl -pg 1 -lvl 4 -x 1140 -y 630 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 25 26 24 22 23 27} -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L -pinBusDir tracer_value right -pinBusY tracer_value 100R -pinBusDir tracer_enable right -pinBusY tracer_enable 120R -pinBusDir tracer_index right -pinBusY tracer_index 80R -pinBusDir wr_tracer_cell right -pinBusY wr_tracer_cell 40R -pinDir wr_tracer_cell_wstrobe right -pinY wr_tracer_cell_wstrobe 60R -pinBusDir rd_tracer_cell right -pinBusY rd_tracer_cell 140R
+preplace netloc CLK100MHZ_1 1 0 1 NJ 410
+preplace netloc CPU_RESETN_1 1 0 1 NJ 430
+preplace netloc EOF 1 5 1 1860 400n
+preplace netloc PA_SYNC 1 5 1 1800 360n
+preplace netloc RS0 1 5 1 1940 380n
+preplace netloc RS256 1 5 1 1840 340n
+preplace netloc SOF 1 5 1 1820 420n
+preplace netloc configure_0_cycles_per_frame 1 5 1 1900 300n
+preplace netloc configure_0_frame_header 1 5 1 1880 320n
+preplace netloc configure_0_idle_0 1 5 1 1920 280n
+preplace netloc configure_0_idle_1 1 5 1 1940 260n
+preplace netloc sensor_emu_ctl_axi_o_FIFO_CTL_f0_reset 1 4 1 N 60
+preplace netloc sensor_emu_ctl_axi_o_FIFO_CTL_f1_reset 1 4 1 N 120
+preplace netloc sensor_emu_ctl_axi_o_FIFO_CTL_wstrobe 1 4 1 N 140
+preplace netloc sensor_emu_ctl_axi_o_HARD_STOP_wstrobe 1 4 1 N 300
+preplace netloc sensor_emu_ctl_axi_o_LOAD_F0 1 4 1 N 180
+preplace netloc sensor_emu_ctl_axi_o_LOAD_F0_wstrobe 1 4 1 N 200
+preplace netloc sensor_emu_ctl_axi_o_LOAD_F1 1 4 1 N 220
+preplace netloc sensor_emu_ctl_axi_o_LOAD_F1_wstrobe 1 4 1 N 240
+preplace netloc sensor_emu_ctl_axi_o_START 1 4 1 N 260
+preplace netloc sensor_emu_ctl_axi_o_START_wstrobe 1 4 1 N 280
+preplace netloc sensor_emu_ctl_axi_o_UPPER32 1 4 1 N 160
+preplace netloc sensor_emulator_o_ACTIVE_FIFO 1 4 1 N 400
+preplace netloc sensor_emulator_o_F0_COUNT 1 4 1 N 360
+preplace netloc sensor_emulator_o_F1_COUNT 1 4 1 N 380
+preplace netloc sensor_emulator_o_FIFO_STAT_f0_ready 1 4 1 N 100
+preplace netloc sensor_emulator_o_FIFO_STAT_f1_ready 1 4 1 N 80
+preplace netloc sensor_emulator_o_MODULE_REV 1 4 1 N 320
+preplace netloc sensor_emulator_o_PATTERN_WIDTH 1 4 1 N 340
+preplace netloc source_100mhz_interconnect_aresetn 1 1 4 NJ 410 600 590 920 470 1300
+preplace netloc source_100mhz_peripheral_aresetn 1 1 5 360 430 580 650 900 550 1340 550 2000
+preplace netloc system_clock_clk_100mhz 1 1 5 360 660 560 630 940 530 1320 530 1980
+preplace netloc sensor_emulator_lvds 1 5 1 1760 440n
+preplace netloc sensor_trace_lvds_out 1 5 1 2000 610n
+preplace netloc sensor_trace_sof 1 5 1 N 870
+preplace netloc sensor_trace_ctl_tracer_value 1 4 1 N 730
+preplace netloc sensor_trace_ctl_tracer_enable 1 4 1 N 750
+preplace netloc sensor_trace_ctl_tracer_index 1 4 1 N 710
+preplace netloc sensor_trace_ctl_wr_tracer_cell_wstrobe 1 4 1 N 690
+preplace netloc sensor_trace_ctl_wr_tracer_cell 1 4 1 N 670
+preplace netloc sensor_trace_rd_tracer_cell 1 4 1 NJ 770
+preplace netloc hier_0_M_AXI 1 2 1 N 490
+preplace netloc hier_0_UART 1 2 5 NJ 610 980J 510 N 510 1780 670 N
+preplace netloc system_interconnect_M00_AXI 1 3 1 N 370
+preplace netloc system_interconnect_M01_AXI 1 3 3 N 490 N 490 N
+preplace netloc system_interconnect_M02_AXI 1 3 3 960 570 N 570 1960
+preplace netloc system_interconnect_M03_AXI 1 3 1 880 530n
+levelinfo -pg 1 0 190 460 740 1140 1550 2140 2300
+pagesize -pg 1 -db -bbox -sgen -150 0 2390 930
+",
+   "No Loops_ScaleFactor":"0.695652",
+   "No Loops_TopLeft":"-142,-141",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_CLK100MHZ -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port port-id_clk_50mhz -pg 1 -lvl 3 -x 610 -y 40 -defaultsOSRD
+preplace port port-id_CPU_RESETN -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace portBus interconnect_aresetn -pg 1 -lvl 3 -x 610 -y 160 -defaultsOSRD
+preplace portBus peripheral_aresetn -pg 1 -lvl 3 -x 610 -y 180 -defaultsOSRD
+preplace inst system_clock -pg 1 -lvl 1 -x 120 -y 60 -defaultsOSRD
+preplace inst system_reset -pg 1 -lvl 2 -x 410 -y 140 -defaultsOSRD
+preplace netloc CLK100MHZ_1 1 0 1 NJ 60
+preplace netloc CPU_RESETN_1 1 0 2 NJ 120 NJ
+preplace netloc system_clock_clk_100mhz 1 1 2 220 40 NJ
+preplace netloc system_reset_interconnect_aresetn 1 2 1 NJ 160
+preplace netloc system_reset_peripheral_aresetn 1 2 1 NJ 180
+levelinfo -pg 1 0 120 410 610
+pagesize -pg 1 -db -bbox -sgen -150 0 850 240
+"
+}
+{
+   "da_axi4_cnt":"3"
+}
